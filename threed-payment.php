@@ -43,14 +43,10 @@ $secure3dhash = hash('sha512', $secure3dhash_input);
 $secure3dhash = strtoupper($secure3dhash);
 
 
-echo "secure3dhash: " . $secure3dhash . "\n";
 ?>
 
 
 
-<?php echo "<pre>";
-print_r($params);
-echo "</pre>"; ?>
 
 
 <div class="card">
@@ -91,7 +87,6 @@ echo "</pre>"; ?>
 
                 <input type="hidden" name="errorurl" id="errorurl" Value="https://garantibbvapos.com.tr/destek/postback.aspx" />
 
-                <input type="hidden" name="companyname" id="companyname" Value="GARANTI TEST" />
 
                 <input type="hidden" name="lang" id="lang" Value="tr" />
 
@@ -100,57 +95,88 @@ echo "</pre>"; ?>
                 <input type="hidden" name="txntimestamp" id="txntimestamp" Value="12/03/2024 16:19:01" />
 
                 <input type="hidden" name="refreshtime" id="refreshtime" Value="5" />
-
-                <input type="hidden" name="cardnumber" id="cardnumber" Value="5406697543211173" />
-
-                <input type="hidden" name="cardexpiredatemonth" id="cardexpiredatemonth" Value="04" />
-
-                <input type="hidden" name="cardexpiredateyear" id="cardexpiredateyear" Value="27" />
-
-                <input type="hidden" name="cardcvv2" id="cardcvv2" Value="" />
-
                 <input type="hidden" name="puani" id="puani" Value="" />
+
+
+                <!----Görünün kısmı---->
+
+
+
+
+                <input type="text" name="companyname" id="companyname" Value="GARANTI TEST"  class="form-control" />
+
+                <input type="text" name="cardnumber" id="cardnumber" Value="5406697543211173" class="form-control" />
+
+                <input type="text" name="cardexpiredatemonth" id="cardexpiredatemonth" Value="04"  class="form-control" />
+
+                <input type="text" name="cardexpiredateyear" id="cardexpiredateyear" Value="27" class="form-control" />
+
+                <input type="text" name="cardcvv2" id="cardcvv2" Value=""  class="form-control" />
+
 
             </div>
 
-            <button type="submit">Submit</button>
+            <!--- Ödenecek tutar ve ödeme butonu---->
+
+            <div class="footer">
+                <button type="submit" class="btn btn-primary">Ödeme Yap <?php echo $amount; ?> TL</button>
+            </div>
+            
 
         </form>
     </div>
 </div>
 
-<?php include 'views/shared/_footer.php'; ?>
 
 <style>
+    /***Formu Ödeme Sayfası icin uygun tasarım hale getirildi idlere özel işlem yapıldı */
+
+
+    #form2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #form2 input {
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+    }
+
+    #form2 button {
+        margin: 10px;
+        padding: 10px;
+        width: 426px !important;
+    }
+
     .card {
-        margin: 20px;
-        padding: 20px;
-        border: 1px solid #e0e0e0;
-        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+        width: 500px;
     }
 
     .card-body {
-        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    button:hover {
-        background-color: #0056b3;
-    }
-
-
-    input {
-        margin: 5px;
-        padding: 10px;
-        border: 1px solid #e0e0e0;
-        border-radius: 5px;
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 </style>
+
+<?php include 'views/shared/_footer.php'; ?>
